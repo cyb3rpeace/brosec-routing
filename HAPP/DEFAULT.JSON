@@ -1,7 +1,7 @@
 {
   "Name": "BroSecRouting",
   "GlobalProxy": "true",
-  "RouteOrder": "block-proxy-direct",
+  "RouteOrder": "block-direct-proxy",
   "RemoteDNSType": "DoH",
   "RemoteDNSDomain": "https://8.8.8.8/dns-query",
   "RemoteDNSIP": "8.8.8.8",
