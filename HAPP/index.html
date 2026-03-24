@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Подключение роутинга</title>
+</head>
+<body>
+  <p>Открываем Happ...</p>
+  <script>
+    // Вариант A: читать диплинк из raw-файла GitHub
+    const src = "https://raw.githubusercontent.com/cyb3rpeace/brosec-routing/refs/heads/main/HAPP/DEFAULT.DEEPLINK";
+
+    fetch(src, { cache: "no-store" })
+      .then(r => r.text())
+      .then(t => {
+        const deeplink = t.trim();
+        if (!deeplink.startsWith("happ://routing/")) throw new Error("Invalid deeplink");
+        window.location.replace(deeplink);
+      })
+      .catch(() => {
+        // Фолбэк: кнопка, если авто-переход блокируется клиентом Telegram/Desktop
+        document.body.innerHTML = `
+          <p>Автопереход не сработал.</p>
+          <p><a id="open">Нажмите, чтобы открыть в Happ</a></p>
+        `;
+        fetch(src).then(r => r.text()).then(t => {
+          const deeplink = t.trim();
+          document.getElementById("open").href = deeplink;
+        });
+      });
+  </script>
+</body>
+</html>
