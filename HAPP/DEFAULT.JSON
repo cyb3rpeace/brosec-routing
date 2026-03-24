@@ -34,8 +34,7 @@
   "DirectIp": [
     "geoip:private",
     "geoip:direct",
-    "94.156.179.172",
-    "37.139.35.38"
+    "94.156.179.172"
   ],
   "ProxySites": [
     "geosite:github",
