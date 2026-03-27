@@ -33,8 +33,7 @@
   ],
   "DirectIp": [
     "geoip:private",
-    "geoip:direct",
-    "94.156.179.172"
+    "geoip:direct"
   ],
   "ProxySites": [
     "geosite:github",
